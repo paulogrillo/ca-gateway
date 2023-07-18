@@ -21,6 +21,6 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://eureka-img:8081/eureka/
+      defaultZone: http://172.18.0.3:8081/eureka/
     fetch-registry: true
     register-with-eureka: true
