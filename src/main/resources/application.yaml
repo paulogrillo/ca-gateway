@@ -1,3 +1,10 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
 
 spring:
   application:
@@ -6,21 +13,30 @@ spring:
     gateway:
       routes:
         - id: fretes
-          uri: lb://fretes
           predicates:
-            - Path=/new-account
-      discovery:
-        locator:
-          enabled: true
-          lowerCaseServiceId: true
-server:
-  port: 8080
+            - Path=/**
+          uri: lb://fretes
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://172.18.0.3:8081/eureka/
-    fetch-registry: true
-    register-with-eureka: true
+
+
+#logging:
+#  level:
+#    root: debug
+#    org:
+#      springframework:
+#        boot:
+#          autoconfigure:
+#            web: debug
+#        cloud:
+#          gateway: debug
+#        http:
+#          server:
+#            reactive: debug
+#        web:
+#          reactive: debug
+#reactor:
+#  netty: debug
+#redisratelimiter: debug
+
+
+
